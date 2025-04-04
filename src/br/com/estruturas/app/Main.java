@@ -5,42 +5,43 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        AVLTree<Integer> tree = new AVLTree<>();
-        int choice, value;
+        Scanner scanner = new Scanner(System.in); // scaner para escolha
+        AVLTree<Integer> tree = new AVLTree<Integer>(); // criação da nova arvore de integer
+        int choice, value; //variaveis para escolha e inserção caso necessário
 
         do {
             System.out.println("\n--- AVL Tree Operations ---");
             System.out.println("1. Insert");
             System.out.println("2. Remove");
-            System.out.println("3. In-Order Traversal");
-            System.out.println("4. Display Tree Structure");
+            System.out.println("3. emOrdem");
+            System.out.println("4. Nível");
             System.out.println("5. Exit");
             System.out.print("Enter your choice: ");
-            choice = scanner.nextInt();
+            choice = scanner.nextInt(); // scanner pega o proximo inteiro de escolha
 
-            switch (choice) {
+            switch (choice) { // de acordo com a opção
                 case 1:
-                    System.out.print("Enter value to insert: ");
+                    System.out.print("Valor para inserir: ");
                     value = scanner.nextInt();
                     tree.insert(value);
                     System.out.println(value + " inserted successfully!");
                     break;
                 case 2:
-                    System.out.print("Enter value to remove: ");
+                    System.out.print("Valor para remover: ");
                     value = scanner.nextInt();
-                    // tree.remove(value); // Uncomment when remove is implemented
-                    System.out.println("Remove operation will be implemented here");
+                    tree.remove(value);
+                    System.out.println(value + "Removed successfully!");
                     break;
                 case 3:
-                    System.out.print("In-Order Traversal: ");
-                    // tree.inOrderTraversal(); // Uncomment when traversal is implemented
-                    System.out.println("Traversal will be implemented here");
+                    System.out.print("Valores em ordem: ");
+                    //System.out.println(tree.inOrder());
+                    tree.inOrder();
+
                     break;
                 case 4:
-                    System.out.println("Tree Structure:");
-                    // tree.display(); // Uncomment when display is implemented
-                    System.out.println("Display will be implemented here");
+                    System.out.println("Estrutura por nível:");
+                    System.out.println(tree.toString());
+                    //tree.passeioNivel();
                     break;
                 case 5:
                     System.out.println("Exiting...");
@@ -50,6 +51,9 @@ public class Main {
             }
         } while (choice != 5);
 
+
         scanner.close();
     }
+
+
 }

@@ -1,6 +1,6 @@
 package br.com.estruturas.avl;
 
-public class AVLNode<T extends Comparable<T>> {
+class AVLNode<T extends Comparable<T>> {
     private AVLNode<T> left;
     private AVLNode<T> right;
     private T info;
@@ -10,7 +10,20 @@ public class AVLNode<T extends Comparable<T>> {
         this.info = info;
         this.fatBal = 0;
     }
+/*
 
+    public String toString() {
+        return (this.left != null ? "[(" +this.left.toString() + "]" + this.left.getFatBal() +")" : " [(null)] ")
+                + "[(" + this.info.toString() + ")"+ this.getFatBal() +"]"
+                + (this.right != null ? "[(" +this.left.toString() + "]"+ this.right.getFatBal() +")" : " [(null)] ");
+    }
+*/
+    @Override
+    public String toString(){
+        return (this.left == null ? "[(null)]" : "[(" +this.left.toString()+ ")"+ this.left.getFatBal() +"]") +
+                "[(" + this.info.toString() + ")]" +
+                (this.right == null ? "[(null)]" : "[(" + this.right.toString() + ")" +this.right.getFatBal()+ "]");
+    }
     // Getters e Setters
     public void setInfo(T info) {
         this.info = info;
@@ -19,6 +32,8 @@ public class AVLNode<T extends Comparable<T>> {
     public T getInfo() {
         return info;
     }
+
+
 
     public void setLeft(AVLNode<T> left) {
         this.left = left;
